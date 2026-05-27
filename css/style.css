@@ -21,16 +21,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
-    background-color: var(--bg-base);
+    /*background-color: var(--bg-base);*/
     color: var(--text-primary);
     font-family: var(--font-sans);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    width: 100vw;
+  height: 100vh;
+  background-color: #121824; /* Color oscuro del fondo Neo-Cyber */
+  
+  /* El truco clave: Un espacio uniforme alrededor de 20px */
+  padding: 20px; 
+  
+  
 }
+
+/* Layout del artículo con dos secciones de colores distintos */
+article {
+    flex: 1;
+    display: flex; /* Coloca los dos sections uno junto al otro */
+    min-height: 0; /* Permite que el contenido se ajuste dentro del flex container */
+    background-color: #1a2333;
+    border: 1px solid #00BCD4; /* Borde principal del article con el color solicitado */
+    border-radius: 8px;
+    overflow: hidden; /* Evita que las esquinas de los sections salgan del contenedor */
+}
+
+article > section {
+    min-height: 0; /* Previene overflow inesperado en flex children */
+    padding: 2rem;
+}
+
+article > section:first-child {
+    width: 320px; /* Panel izquierdo fijo */
+    background-color: #162940; /* Color diferente para la primera sección */
+    border-right: 1px solid #00BCD4;
+    border-left: 1px solid #00BCD4;
+}
+
+article > section:last-child {
+    flex: 1; /* La segunda sección ocupa el espacio restante */
+    background-color: #293a5d; /* Color diferente para la segunda sección */
+}
+
 
 /* ── Grid de fondo ── */
 body::before {
